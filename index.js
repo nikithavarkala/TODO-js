@@ -4,6 +4,7 @@ let plus=document.querySelector('.plus');
 let txt=document.querySelector('#newtxt');
 let txt2=document.querySelector('#items-txt');
 const box=document.querySelector('.box');
+let addplus=document.querySelector('.addplus');
 const noitemtxt=document.querySelector('.noitem');
 
 
@@ -33,8 +34,6 @@ function addCards(){
     else{
         alert("please enter card title");
     }
-    // txt.value="";
-    // close();
 }
 
 function add(){
@@ -51,6 +50,8 @@ function add(){
     }
     document.querySelector('.container').innerHTML=child;
     handleItems();
+    // let blur = document.querySelector('.blur');
+    // document.querySelector('.blur').classList.add('blur-background');
     noitemtxt.style.display="none";
 }
 
@@ -67,8 +68,8 @@ function Close(){
 
 function Itempopup(id){
     popbox2.style.display="block";
+    document.querySelector('.blur').style.opacity="17%";
     card_id=id;
-    // document.querySelector('.blur').style.opacity="17%";
 }
 
 //deleting the cards (also from dom)
@@ -80,10 +81,17 @@ function Delete(id){
     // noitemtxt.style.display="block";
 
 }
+function openAddListPopup() {
+    popbox2.style.display = "block";
+    document.querySelector('.blur').style.opacity = "17%";
+    // document.querySelector('.blur').classList.add('blur-background');
+}
 
 //adding tasks list into card
 function AddItems(){
+    openAddListPopup();
     popbox2.style.display = "none";
+    document.querySelector('.blur').style.opacity="100%";
     const itemstxt=txt2.value;
     txt2.value="";
     // const listid=`content_${card_id}`;
@@ -116,6 +124,13 @@ function AddItems(){
     }
 }
 
+function markDone(listId, cardId) {
+    const itemId = `content_${listId}`;
+    const listItem = document.getElementById(itemId);
+    listItem.classList.toggle("marked");
+}
+
+
 function handleItems(){
     for(let i=0;i<data.length;i++){
         const ul=document.getElementById(`content_${data[i].id}`);
@@ -124,7 +139,6 @@ function handleItems(){
         for(let j=0;j<data[i].content.length;j++){
             const content=data[i].content[j];
             child+=`<li id=content_${content.id} class=items ${content.done ? "checked":""} onclick=done(${content.id},${data[i].id})>${content.contenttxt}</li>`;
-            // console.log(content.id); onclick=done(content.id,data[i].id)${content.done ? "checked":""}
         }
         ul.innerHTML=child;
         
@@ -136,52 +150,69 @@ function done(listid,cardid){
     const items_id=`content_${listid}`;
     const list=document.getElementById(items_id);
     list.classList.toggle("checked");
-    // if(list.style.textDecoration==='line-through' && list.style.color==='red' ){
-    //     list.style.textDecoration==='none';
-    //     console.log(list.innerText);
-    // }
-    // else{
-    //     list.style.textDecoration='line-through';
-    //     list.style.color="red";
-    // }
-
-    // for(let i=0;i<data.length;i++){
-    //     if(data[i].id==cardid){
-    //         for(let j=0;i<data[i].content.length;j++){
-    //             if(items_id==listid){
-    //                 data[i].content[j].done=true;
-    //             }
-    //         }
-    //     }
-    // }
+   
 }
 
 let id;
 // let count=0;
-function filter(cid){
-    let c=document.getElementById(cid);
-    const cardtit=c.querySelector('.title');
-    let blur=document.querySelector('.blur');
-    id=cid;
-    
-    blur.style.opacity='5%';
-    document.querySelector('.cardtitle').innerText=cardtit.innerText;
-    let div=document.querySelector('.specificCard');
-    div.style.display="block";
+function filter(cid) {
+    let c = document.getElementById(cid);
+    const cardtit = c.querySelector('.title');
+    let blur = document.querySelector('.blur');
+    id = cid;
+    document.querySelector('.container').style.display='none';
+    document.querySelector('.addplus').style.display = 'block';
+    document.querySelector('.addplus').style.display = 'none';
+    document.getElementById('task-list-title').style.display = 'none';
 
-    popbox2.style.zIndex="3"; 
+    // Hide all cards except the centered card
+    const cards = document.querySelectorAll('.cards');
+    cards.forEach(card => {
+        if (card !== c) {
+            card.style.display = 'none';
+        }
+    });
+
+    blur.style.opacity = '1%';
+    document.querySelector('.cardtitle').innerText = cardtit.innerText;
+    let div = document.querySelector('.specificCard');
+    div.style.display = "block";
+    // blur.classList.add('blur-background'); // Apply the blur effect
+    popbox2.style.zIndex = "3";
+    popbox.style.zIndex = "3";
     div.append(c);
-    // console.log(div);
+
+    // Apply the centered card style
+    c.classList.add('centered-card');
+    document.body.classList.add('centered-background');
 }
 
-function back(){
-    let backbtn=document.querySelector('.back');
-    let blur=document.querySelector('.blur');
-    let div=document.querySelector('.specificCard');
-    let c=document.getElementById(id);
 
-    document.getElementById(id).style.display='none';
-    div.style.display='none';
-    blur.style.opacity='100%';
+
+function back() {
+    let blur = document.querySelector('.blur');
+    let div = document.querySelector('.specificCard');
+    let c = document.getElementById(id);
+
+    document.getElementById(id).style.display = 'block'; // Show the clicked card again
+    div.style.display = 'none'; // Hide the centered card container
+    blur.style.opacity = '100%';
+    // blur.classList.remove('blur-background'); // Remove the blur effect
+    popbox.style.display = "none";
+    txt.value = "";
+
+    popbox2.style.display = "none";
+    txt2.value = "";
+    document.querySelector('.addplus').style.display = 'block';
+    document.querySelector('.container').style.display='block';
+    document.querySelector('.container').style.display='flex';
+
+    document.getElementById('task-list-title').style.display = 'block';
+    const cards = document.querySelectorAll('.cards');
+    cards.forEach(card => {
+        card.style.display = 'block';
+    });
+
     add();
 }
+
