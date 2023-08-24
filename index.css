@@ -10,6 +10,7 @@ h1{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     /* font-family: 'Dancing Script', cursive; */
 }
+
 .noitem{
     color: white;
     margin-left: 60px;
@@ -30,6 +31,18 @@ span{
     top:50px;
     right:150px;
 }
+.addplus-centered {
+  display: block !important;
+}
+#addplus{
+    position: absolute;
+    top:-130px;
+    left:38.6vw;
+    width: 200px;
+}
+#addplus-centered {
+  display: block !important;
+}
 a{
     text-decoration: none;
     color: white;
@@ -41,8 +54,8 @@ a{
     border-radius: 15px;
     box-shadow: 5px 5px 5px gray;
     position: fixed;
-    top:170px;
-    left:446px;
+    top:190px;
+    left:35%;
     width:410px;
     height: 240px;
     text-align: center;
@@ -60,6 +73,19 @@ a{
     text-align: center;
     display: none;
 }
+.blur-background {
+    filter: blur(10px); 
+    pointer-events: none; /* Prevent interactions with the blurred background */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 2; /* Place it above everything except the popup */
+    display: none; /* Initially hidden */
+}
+
 .ant{
     color:orangered;
     padding-top:20px;
@@ -162,6 +188,10 @@ a{
     margin-top: 50px;
 }
 
+.items.marked {
+    text-decoration: line-through;
+}
+
 .cards{
     border-radius: 10px;
     margin-right: 7px;
@@ -199,6 +229,7 @@ li::marker{
     color:black;
 
 }
+
 .card-buttons{
    text-align:center;
 }
@@ -243,20 +274,16 @@ li{
 .nav{
     display: flex;
     position: absolute;
-    left:-40px;
+    right: 100px;
     top:-120px;
     width: 500px;
 }
 .cardtitle{
     color:orange;
     font-size: 40px;
-    margin-top: 0px;
-    margin-left: 50px;
+    position: absolute;
+    left:90%;
 }
-
-/* .items{
-    color:blue;
-} */
 .checked{
     text-decoration: line-through;
     color: red;
