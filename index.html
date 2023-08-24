@@ -5,15 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
-    -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="index.css"> 
 </head>
 <body>
 <div class="blur">
-    <h1>Tasks <span>List</span></h1>
+    <h1 id="task-list-title">Tasks <span>List</span></h1>
     <div class="addplus">
         <button class="plus" onclick="addTask()">+</button>
         <a href="#">Add Item</a>
@@ -44,6 +41,10 @@
         <div class="nav">
             <button class="back" onclick="back()">&lt;</button>&nbsp;<span>  Back</span>
             <h2 class="cardtitle"></h2>
+        </div>
+        <div id="addplus">
+            <button class="plus" onclick="addTask()">+</button>
+            <a href="#">Add Item</a>
         </div>
     </div>
 <script src="index.js"></script>
