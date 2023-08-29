@@ -6,11 +6,13 @@ let txt2=document.querySelector('#items-txt');
 const box=document.querySelector('.box');
 let addplus=document.querySelector('.addplus');
 const noitemtxt=document.querySelector('.noitem');
-
+const specificCard=document.querySelector('.specificCard')
 
 function addTask(){
     popbox.style.display = "block";
     document.querySelector('.blur').style.opacity="17%";
+    const popup = document.getElementById('popup');
+    specificCard.style.opacity="17%";
 }
 
 let data=[];
@@ -20,6 +22,8 @@ let card_id;
 function addCards(){
     popbox.style.display = "none";
     document.querySelector('.blur').style.opacity="100%";
+    specificCard.style.opacity="100%";
+
     const mytxt=txt.value;
     txt.value="";
     const cardsdata={
@@ -64,12 +68,15 @@ function Close(){
 
     popbox2.style.display = "none";
     txt2.value="";
+    specificCard.style.opacity="100%";
 }
 
 function Itempopup(id){
     popbox2.style.display="block";
     document.querySelector('.blur').style.opacity="17%";
     card_id=id;
+    specificCard.style.opacity="17%";
+
 }
 
 //deleting the cards (also from dom)
@@ -120,6 +127,7 @@ function AddItems(){
                 data[i].content.push(content);
             }
         }
+        specificCard.style.opacity="100%";
         
     }
 }
@@ -215,4 +223,3 @@ function back() {
 
     add();
 }
-
