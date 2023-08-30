@@ -324,6 +324,7 @@ li{
     }
     .cards{
         width:84%;
+        height:auto;
     }
     .title{
         padding-top: 10px;
