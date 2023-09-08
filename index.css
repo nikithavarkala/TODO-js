@@ -1,4 +1,4 @@
- body{
+body{
     background-color: black; 
     margin-left: 50px;
     margin-right: 70px;
@@ -197,7 +197,7 @@ a{
     margin-right: 7px;
     background-color: white;
     width:210px;
-    height: 275px;
+    height: 286px;
     margin-left:20px;
     margin-bottom: 36px;
     /* overflow: auto; */
@@ -215,7 +215,8 @@ li::marker{
     text-align: center;
     margin-bottom: 10px;
     margin-top: 9px;
-    /* color: rgb(66, 203, 208);     */
+    word-wrap: break-word;
+    /* overflow-y: scroll; */
     color: orange;
     cursor: pointer;
 }
@@ -242,6 +243,7 @@ ul{
     list-style:circle;
     height: 150px;
     overflow: auto;
+    word-break: break-all;
 
 }
 li{
@@ -301,10 +303,15 @@ li{
         margin:26px;
         margin-top: 15px;
     }
+    #addplus{
+        position: absolute;
+        top: -109px;
+        left:48.6vw;
+    }
     .addplus{
         position: absolute;
-        top:100px;
-        right:15px;
+        top: 89px;
+        right: 49px;
     }
     h1{
         margin-left: -10px;
@@ -325,14 +332,23 @@ li{
     .cards{
         width:84%;
         height:auto;
+        margin-top: 20px;
     }
     .title{
         padding-top: 10px;
         padding-bottom: 5px;
         font-size: 26px;
     }
+    .cardtitle{
+        top:50%;
+        left:20%;
+        font-size: 25px;
+    }
     li{
         font-size: 18.5px;
+    }
+    ul{
+        word-break: break-all;
     }
     .popup{
         position: fixed;
@@ -369,6 +385,7 @@ li{
         position: absolute;
         left:10px;
         top:-70px;
+        width: fit-content;
     }
     /* .popup2{
         width:60%;
