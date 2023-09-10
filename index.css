@@ -216,7 +216,8 @@ li::marker{
     margin-bottom: 10px;
     margin-top: 9px;
     word-wrap: break-word;
-    /* overflow-y: scroll; */
+    max-height: 3.5vw;
+    overflow-y: scroll;
     color: orange;
     cursor: pointer;
 }
@@ -248,7 +249,7 @@ ul{
 }
 li{
     padding-bottom: 10px;
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -282,10 +283,19 @@ li{
 }
 .cardtitle{
     color:orange;
-    font-size: 40px;
+    font-size: 25px;
+    top:6vw;
     position: absolute;
-    left:90%;
+    /* left:0%; */
+    max-width: 40vw;
+    word-break: break-all;
 }
+.specificCardTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .checked{
     text-decoration: line-through;
     color: red;
@@ -338,10 +348,15 @@ li{
         padding-top: 10px;
         padding-bottom: 5px;
         font-size: 26px;
+        max-height: 9vw;
     }
     .cardtitle{
-        top:50%;
-        left:20%;
+        top:18vw;
+        /* left:20%; */
+        max-width: 77vw;
+        position: static;
+        max-height: 17vw;
+        overflow: scroll;
         font-size: 25px;
     }
     li{
@@ -379,6 +394,7 @@ li{
         top:120px;
         left:30px;
         width:85%;
+        margin-top: 25vw;
     }
     .nav{
         display: flex;
@@ -434,11 +450,13 @@ li{
         margin: 10px;
     }
     .cards{
-        width:44%;
+        width:52%;
+        height:44vw;
         margin-left: 0px;
     }
     .title{
         font-size: xx-large;
+        max-height: 11vw;
     }
     .popup2{
         position: fixed;
@@ -454,11 +472,14 @@ li{
     }
     ul{
         margin-left: 20px;
+        /* height: 190px; */
+        height: 21vw;
     }
     .specificCard{
         position: absolute;
         left:210px;
         width:100%;
+        margin-top: 10vw;
     }
     .specificCard span{
         font-size: 40px;
@@ -468,6 +489,19 @@ li{
         font-size: 50px;
     }
     .cardtitle{
-        font-size: 58px;
+        font-size: 35px;
+        position: static;
+        max-width: 50vw;
+        max-height: 10vw;
+        overflow: auto;
+    }
+    .nav{
+        left:-20vw;
+    }
+    #addplus{
+        width:27vw;
+    }
+    .container{
+        justify-content: center;
     }
 }
