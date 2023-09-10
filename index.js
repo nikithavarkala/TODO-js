@@ -22,6 +22,7 @@ let card_id;
 
 function addCards(){
     popbox.style.display = "none";
+    // document.querySelector('.cardtitle').style.display="block"
     document.querySelector('.blur').style.opacity="100%";
     specificCard.style.opacity="100%";
 
@@ -69,7 +70,7 @@ function Close(){
 
     popbox2.style.display = "none";
     txt2.value="";
-    document.querySelector('.cardtitle').style.display="block"
+    // document.querySelector('.cardtitle').style.display="block"
     specificCard.style.opacity="100%";
 
 }
@@ -102,7 +103,7 @@ function openAddListPopup() {
 function AddItems(){
     openAddListPopup();
     popbox2.style.display = "none";
-    document.querySelector('.cardtitle').style.display="block"
+    // document.querySelector('.cardtitle').style.display="block"
 
     document.querySelector('.blur').style.opacity="100%";
     const itemstxt=txt2.value;
