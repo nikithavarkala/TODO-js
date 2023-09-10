@@ -22,7 +22,6 @@ let card_id;
 
 function addCards(){
     popbox.style.display = "none";
-    document.querySelector('.cardtitle').style.display="block"
     document.querySelector('.blur').style.opacity="100%";
     specificCard.style.opacity="100%";
 
