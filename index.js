@@ -13,6 +13,7 @@ function addTask(){
     document.querySelector('.blur').style.opacity="17%";
     const popup = document.getElementById('popup');
     specificCard.style.opacity="17%";
+    document.querySelector('.cardtitle').style.display="none"
 }
 
 let data=[];
@@ -21,6 +22,7 @@ let card_id;
 
 function addCards(){
     popbox.style.display = "none";
+    document.querySelector('.cardtitle').style.display="block"
     document.querySelector('.blur').style.opacity="100%";
     specificCard.style.opacity="100%";
 
@@ -68,7 +70,9 @@ function Close(){
 
     popbox2.style.display = "none";
     txt2.value="";
+    document.querySelector('.cardtitle').style.display="block"
     specificCard.style.opacity="100%";
+
 }
 
 function Itempopup(id){
@@ -76,6 +80,7 @@ function Itempopup(id){
     document.querySelector('.blur').style.opacity="17%";
     card_id=id;
     specificCard.style.opacity="17%";
+    document.querySelector('.cardtitle').style.display="none"
 
 }
 
@@ -98,6 +103,8 @@ function openAddListPopup() {
 function AddItems(){
     openAddListPopup();
     popbox2.style.display = "none";
+    document.querySelector('.cardtitle').style.display="block"
+
     document.querySelector('.blur').style.opacity="100%";
     const itemstxt=txt2.value;
     txt2.value="";
@@ -193,6 +200,8 @@ function filter(cid) {
     // Apply the centered card style
     c.classList.add('centered-card');
     document.body.classList.add('centered-background');
+    document.querySelector('.cardtitle').style.display="block";
+
 }
 
 
@@ -222,4 +231,6 @@ function back() {
     });
 
     add();
+    document.querySelector('.cardtitle').style.display="none";
+
 }
